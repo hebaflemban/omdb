@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}List{% endblock title %}
+<!-- 'Runtime': '143 min', 'Genre': 'Action, Adventure, Sci-Fi', 'Director': 'Joss Whedon',
+'Writer': 'Joss Whedon (screenplay), Zak Penn (story), Joss Whedon (story)',
+'Actors': 'Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth',
+'Plot': "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+'Language': 'English, Russian, Hindi', 'Country': 'USA', 'Awards': 'Nominated for 1 Oscar. Another 38 wins & 79 nominations.',
+'Ratings': [{'Source': 'Internet Movie Database', 'Value': '8.0/10'}, {'Source': 'Rotten Tomatoes', 'Value': '92%'}, {'Source': 'Metacritic', 'Value': '69/100'}], 'Metascore': '69', 'imdbRating': '8.0', 'imdbVotes': '1,239,566', 'imdbID': 'tt0848228', 'Type': 'movie', 'DVD': '25 Sep 2012', 'BoxOffice': '$623,279,547',
+'Production': 'Walt Disney Pictures', 'Website': 'N/A', 'Response': 'True'} -->
+{% block content %}
+
+<div class = "container m-5 mt-5">
+  <div class="row">
+      {% for movie in resp.Search %}
+        <div class = "col-4 mb-5">
+          <div class="card h-100 bg-transparent border-dark text-white ">
+            <img class="card-img-top " src="{{movie.Poster}}"  style=" height: 200px; object-fit: cover;" alt="Card image cap">
+
+            <div class="card-body">
+              <h5 class="card-title" style="font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive; font-family: 'Roboto Mono', monospace;">{{movie.Title}}</h5>
+              <br>
+              <br>
+              <p class="card-text " style = "font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive;font-family: 'Nunito', sans-serif;font-family: 'Roboto Mono', monospace;">{{movie.Year}}</p>
+            </div>
+
+            <div class="card-footer">
+              <small class="text-muted">
+                <a href="{% url 'detail' movie.imdbID %}" class="btn btn-outline-info" style = " font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive;font-family: 'Nunito', sans-serif;font-family: 'Roboto Mono', monospace;">Tell me more!!! &raquo;
+                </a>
+              </small>
+
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}
+<!-- {% url 'detail' movie.imdbID %} -->

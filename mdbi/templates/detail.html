@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{movie.Title}}{% endblock title %}
+
+{% block content %}
+<div class="card mb-3">
+  <img src="{{movie.Poster}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title font-weight-bold" style="font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive; font-family: 'Roboto Mono', monospace;">Release date :{{movie.Released}}</h5>
+    <p class="card-text font-weight-bold" style = "font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive;font-family: 'Nunito', sans-serif;font-family: 'Roboto Mono', monospace;"> {{movie.Rated}}</p>
+    <p class="card-text font-weight-bold" style = "font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive;font-family: 'Nunito', sans-serif;font-family: 'Roboto Mono', monospace;"> {{movie.Genre}}</p>
+    <p class="card-text font-weight-bold" style = "font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive;font-family: 'Nunito', sans-serif;font-family: 'Roboto Mono', monospace;"><small class="text-muted">{{movie.Runtime}}</small></p>
+    <h6 class="card-text">Director: <small>{{movie.Director}}</small></h6>
+    <h6 class="card-text">Writer: <small>{{movie.Writer}}</small></h6>
+    <h6 class="card-text">Actors: <small>{{movie.Actors}}</small></h6>
+    <h6 class="card-text">Awards: <small>{{movie.Awards}}</small></h6>
+    <h6 class="card-text">imdbRating: <small>{{movie.imdbRating}}</small></h6>
+    <h6 class="card-text">Type: <small>{{movie.Type}}</small></h6>
+    <h6 class="card-text">BoxOffice: <small>{{movie.BoxOffice}}</small></h6>
+    <h6 class="card-text">Production: <small>{{movie.Production}}</small></h6>
+    <a href="{% url 'list' %}">
+        <button class = "btn btn-outline-info" style = " font-family: 'Assistant', sans-serif;font-family: 'Bebas Neue', cursive;font-family: 'Nunito', sans-serif;font-family: 'Roboto Mono', monospace;">Back to list</button>
+    </a>
+
+  </div>
+</div>
+{% endblock content %}
